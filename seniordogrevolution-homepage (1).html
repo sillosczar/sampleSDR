@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senior Dog Revolution — Dr. Monica Tarantino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF8F4;
+  --warm-white:#FFFEFB;
+  --sand:#EDE7DC;
+  --gold:#B8843A;
+  --gold-pale:#F5EDD8;
+  --rust:#A84C2A;
+  --rust-pale:#F5E8E2;
+  --forest:#364E3E;
+  --forest-mid:#4E6E58;
+  --forest-pale:#E8F0EA;
+  --charcoal:#1E1A14;
+  --muted:#8A7A68;
+  --brown:#6B5540;
+  --body:#2E2618;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--body);line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4.5rem;background:rgba(250,248,244,0.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(180,160,130,0.15)}
+.nav-logo{text-decoration:none}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--forest);display:block;line-height:1.2}
+.nav-logo-sub{font-size:0.62rem;font-weight:400;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;display:block}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.82rem;color:var(--muted);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.nav-links a:hover{color:var(--forest)}
+.nav-cta{background:var(--rust)!important;color:#fff!important;padding:0.5rem 1.3rem;border-radius:100px;font-weight:500!important}
+.nav-cta:hover{background:#c0573a!important}
+
+.hero{padding-top:72px;background:var(--warm-white)}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 72px)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 4.5rem}
+.eyebrow{font-size:0.66rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.7rem;margin-bottom:2rem}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.2vw,4rem);font-weight:600;line-height:1.1;color:var(--charcoal);margin-bottom:1.8rem}
+.hero-h1 em{font-style:italic;color:var(--forest)}
+.hero-p{font-size:1rem;font-weight:300;color:var(--muted);max-width:420px;line-height:1.8;margin-bottom:3rem}
+.path-cards{display:flex;flex-direction:column;gap:1rem;max-width:420px}
+.path-card{border-radius:16px;padding:1.4rem 1.6rem;display:flex;align-items:center;gap:1.2rem;text-decoration:none;transition:all 0.25s}
+.pc-primary{background:var(--forest);box-shadow:0 6px 24px rgba(54,78,62,0.25)}
+.pc-primary:hover{background:var(--forest-mid);transform:translateY(-2px)}
+.pc-secondary{background:var(--gold-pale);border:1px solid rgba(184,132,58,0.25)}
+.pc-secondary:hover{background:#ede3c8;transform:translateY(-2px)}
+.path-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.pc-primary .path-icon{background:rgba(255,255,255,0.12)}
+.pc-secondary .path-icon{background:rgba(184,132,58,0.15)}
+.path-label{font-size:0.64rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.2rem}
+.pc-primary .path-label{color:rgba(255,255,255,0.5)}
+.pc-secondary .path-label{color:var(--gold)}
+.path-title{font-size:0.93rem;font-weight:500;line-height:1.3}
+.pc-primary .path-title{color:#fff}
+.pc-secondary .path-title{color:var(--charcoal)}
+.path-arrow{margin-left:auto;flex-shrink:0;font-size:1rem}
+.pc-primary .path-arrow{color:rgba(255,255,255,0.4)}
+.pc-secondary .path-arrow{color:var(--gold)}
+
+.hero-right{position:relative;overflow:hidden;background:var(--forest-pale);display:flex;align-items:center;justify-content:center}
+.hero-ph{display:flex;flex-direction:column;align-items:center;gap:1rem;color:var(--forest-mid);opacity:0.45;font-family:'Cormorant Garamond',serif;font-style:italic}
+.hero-ph .big{font-size:6rem;opacity:0.4;line-height:1}
+.hero-tag{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--warm-white);border:1px solid var(--sand);border-radius:100px;padding:0.55rem 1.2rem;font-size:0.72rem;font-weight:500;color:var(--forest);white-space:nowrap;box-shadow:0 4px 18px rgba(30,26,20,0.08);display:flex;align-items:center;gap:0.5rem}
+.hero-tag::before{content:'●';color:var(--gold);font-size:0.45rem}
+
+.ribbon{background:var(--forest);padding:0.65rem 0;overflow:hidden}
+.ribbon-track{display:flex;gap:3rem;white-space:nowrap;animation:ticker 30s linear infinite}
+.ribbon-track span{font-size:0.65rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);flex-shrink:0}
+.ribbon-track .dot{color:var(--gold);font-size:0.45rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.proof-strip{display:grid;grid-template-columns:repeat(3,1fr);background:var(--warm-white);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.proof-item{padding:2.5rem 2rem;text-align:center;border-right:1px solid var(--sand)}
+.proof-item:last-child{border-right:none}
+.proof-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--forest);line-height:1;margin-bottom:0.3rem}
+.proof-label{font-size:0.76rem;color:var(--muted);font-weight:300;line-height:1.5}
+
+.section{padding:7rem 4.5rem}
+.section-alt{background:var(--warm-white)}
+.tag{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.64rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.tag::after{content:'';width:32px;height:1px;background:var(--gold)}
+h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;line-height:1.15;color:var(--charcoal);margin-bottom:1rem}
+h2.serif em{font-style:italic;color:var(--forest)}
+.body-copy{font-size:0.95rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.1rem;max-width:500px}
+
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3.5rem}
+.who-card{border-radius:20px;padding:2.2rem;position:relative;overflow:hidden}
+.wc-a{background:var(--forest-pale);border:1px solid rgba(54,78,62,0.15)}
+.wc-b{background:var(--rust-pale);border:1px solid rgba(168,76,42,0.15)}
+.who-label{font-size:0.64rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem}
+.wc-a .who-label{color:var(--forest-mid)}
+.wc-b .who-label{color:var(--rust)}
+.who-card h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;line-height:1.2;color:var(--charcoal);margin-bottom:0.8rem}
+.who-card p{font-size:0.87rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem}
+.who-cta{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:500;text-decoration:none;transition:gap 0.2s}
+.wc-a .who-cta{color:var(--forest)}
+.wc-b .who-cta{color:var(--rust)}
+.who-cta:hover{gap:0.7rem}
+.who-bg{position:absolute;right:-0.5rem;bottom:-1rem;font-size:7rem;opacity:0.07;pointer-events:none;line-height:1}
+
+.col-2{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-frame{background:linear-gradient(160deg,#C5D8BC,#8FAD85);border-radius:4px 28px 28px 28px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.about-frame-ph{color:var(--forest);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;opacity:0.35;text-align:center;padding:2rem}
+.about-note{position:absolute;top:2rem;right:-2rem;background:var(--warm-white);border:1px solid var(--sand);border-radius:14px;padding:1rem 1.2rem;box-shadow:0 8px 28px rgba(30,26,20,0.1);max-width:200px}
+.about-note-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:0.1rem}
+.about-note-title{font-size:0.7rem;color:var(--muted);line-height:1.4}
+.about-img{position:relative}
+.creds{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:2rem}
+.cred{font-size:0.68rem;font-weight:500;color:var(--forest);background:var(--forest-pale);padding:0.3rem 0.8rem;border-radius:100px;border:1px solid rgba(54,78,62,0.18)}
+
+.t-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.t-card{background:var(--forest);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden}
+.t-card::before{content:'\201C';position:absolute;top:-1.5rem;left:1.2rem;font-family:'Cormorant Garamond',serif;font-size:11rem;color:rgba(255,255,255,0.05);line-height:1;pointer-events:none}
+.t-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:#fff;line-height:1.6;margin-bottom:1.5rem;position:relative;z-index:1}
+.t-card blockquote strong{font-style:normal;color:var(--gold-pale)}
+.t-author{display:flex;align-items:center;gap:0.7rem}
+.t-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:500;color:rgba(255,255,255,0.65)}
+.t-name{font-size:0.82rem;font-weight:500;color:#fff}
+.t-dog{font-size:0.7rem;color:rgba(255,255,255,0.4)}
+
+.strip{background:var(--gold-pale);border-top:1px solid rgba(184,132,58,0.2);border-bottom:1px solid rgba(184,132,58,0.2);padding:4rem 4.5rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
+.strip-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.3vw,2rem);font-weight:600;color:var(--charcoal);line-height:1.25;margin-bottom:0.4rem}
+.strip-h em{font-style:italic;color:var(--forest)}
+.strip-sub{font-size:0.86rem;color:var(--muted);font-weight:300}
+.btn-rust{display:inline-flex;align-items:center;gap:0.5rem;background:var(--rust);color:#fff;padding:0.9rem 1.8rem;border-radius:100px;font-size:0.88rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:all 0.2s;box-shadow:0 4px 18px rgba(168,76,42,0.25)}
+.btn-rust:hover{background:#c0573a;transform:translateY(-2px)}
+.btn-forest{display:inline-flex;align-items:center;gap:0.5rem;background:var(--forest);color:#fff;padding:0.9rem 1.8rem;border-radius:100px;font-size:0.88rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:all 0.2s;box-shadow:0 4px 18px rgba(54,78,62,0.25)}
+.btn-forest:hover{background:var(--forest-mid);transform:translateY(-2px)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;padding:0.85rem 1.8rem;border-radius:100px;font-size:0.88rem;font-weight:400;text-decoration:none;border:1.5px solid rgba(255,255,255,0.35);transition:all 0.2s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.08)}
+
+.masterclass-box{background:var(--forest);border-radius:24px;padding:2.5rem}
+.mc-label{font-size:0.64rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;display:block}
+.mc-h{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:#fff;margin-bottom:0.4rem}
+.mc-sub{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:2rem}
+.mc-input{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:0.8rem 1.3rem;color:#fff;font-size:0.87rem;font-family:'Jost',sans-serif;outline:none;width:100%;display:block;margin-bottom:0.75rem}
+.mc-input::placeholder{color:rgba(255,255,255,0.35)}
+.mc-btn{background:var(--gold);color:#fff;border:none;border-radius:100px;padding:0.9rem 1.5rem;font-size:0.9rem;font-weight:500;font-family:'Jost',sans-serif;cursor:pointer;width:100%;transition:background 0.2s}
+.mc-btn:hover{background:#a07030}
+.mc-fine{font-size:0.7rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:0.9rem}
+
+.mc-bullets{list-style:none;margin-bottom:2rem;display:flex;flex-direction:column;gap:0.75rem}
+.mc-bullets li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.88rem;color:var(--brown)}
+.mc-bullets li::before{content:'✦';color:var(--gold);flex-shrink:0;margin-top:0.15rem;font-size:0.65rem}
+
+.final{background:var(--charcoal);padding:7rem 4.5rem;text-align:center;position:relative;overflow:hidden}
+.final::before{content:'🐾';position:absolute;font-size:22rem;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.025;pointer-events:none}
+.final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;color:#fff;line-height:1.2;margin-bottom:1rem;position:relative;z-index:1}
+.final h2 em{font-style:italic;color:rgba(184,132,58,0.85)}
+.final p{font-size:0.94rem;color:rgba(255,255,255,0.4);max-width:440px;margin:0 auto 2.8rem;line-height:1.8;font-weight:300;position:relative;z-index:1}
+.final-btns{display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;position:relative;z-index:1}
+
+footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,0.06);padding:1.8rem 4.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:rgba(255,255,255,0.28)}
+.f-links{display:flex;gap:1.8rem}
+.f-links a{font-size:0.7rem;color:rgba(255,255,255,0.22);text-decoration:none;transition:color 0.2s}
+.f-links a:hover{color:rgba(255,255,255,0.5)}
+.f-copy{font-size:0.66rem;color:rgba(255,255,255,0.16)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .hero-inner,.col-2,.who-grid,.t-grid{grid-template-columns:1fr}
+  .hero-left{padding:3.5rem 1.5rem}
+  .hero-right{min-height:260px}
+  .section,.strip,.final{padding:5rem 1.5rem}
+  .proof-strip{grid-template-columns:1fr}
+  .proof-item{border-right:none;border-bottom:1px solid var(--sand)}
+  .strip{grid-template-columns:1fr}
+  .about-note{position:static;margin-top:1rem;max-width:100%}
+  footer{padding:1.5rem;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-main">Senior Dog Revolution</span>
+    <span class="nav-logo-sub">with Dr. Monica Tarantino</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#glow-up">Glow Up</a></li>
+    <li><a href="#masterclass">Free Masterclass</a></li>
+    <li><a href="glowup-sales.html" class="nav-cta">Apply for Glow Up</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <span class="eyebrow">Senior Dog Revolution</span>
+      <h1 class="hero-h1">The senior years<br>can be <em>the best</em><br>years.</h1>
+      <p class="hero-p">Dr. Monica Tarantino helps pet parents of older dogs build happiness, wellness, and end-of-life plans — so you can love boldly, and let go gently.</p>
+      <div class="path-cards">
+        <a href="#masterclass" class="path-card pc-primary">
+          <div class="path-icon">🎓</div>
+          <div>
+            <div class="path-label">Free Masterclass</div>
+            <div class="path-title">How to Slow Down Your Dog's Slowing Down</div>
+          </div>
+          <span class="path-arrow">→</span>
+        </a>
+        <a href="glowup-sales.html" class="path-card pc-secondary">
+          <div class="path-icon">✦</div>
+          <div>
+            <div class="path-label">7-Week Program</div>
+            <div class="path-title">Glow Up — Build Your Senior Dog's Complete Plan</div>
+          </div>
+          <span class="path-arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <!-- Swap in: <img src="dr-monica-hero.jpg" style="width:100%;height:100%;object-fit:cover" alt="Dr. Monica Tarantino"> -->
+      <div class="hero-ph">
+        <div class="big">🐾</div>
+        <span>Dr. Monica's photo here</span>
+      </div>
+      <div class="hero-tag">Senior dog wellness coaching</div>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon">
+  <div class="ribbon-track">
+    <span>Senior Dog Revolution</span><span class="dot">✦</span><span>Happiness Plans</span><span class="dot">✦</span><span>Wellness Roadmaps</span><span class="dot">✦</span><span>End-of-Life Planning</span><span class="dot">✦</span><span>Dr. Monica Tarantino, DVM</span><span class="dot">✦</span><span>Glow Up Program</span><span class="dot">✦</span><span>Free Masterclass</span><span class="dot">✦</span><span>Small Group Coaching</span><span class="dot">✦</span>
+    <span>Senior Dog Revolution</span><span class="dot">✦</span><span>Happiness Plans</span><span class="dot">✦</span><span>Wellness Roadmaps</span><span class="dot">✦</span><span>End-of-Life Planning</span><span class="dot">✦</span><span>Dr. Monica Tarantino, DVM</span><span class="dot">✦</span><span>Glow Up Program</span><span class="dot">✦</span><span>Free Masterclass</span><span class="dot">✦</span><span>Small Group Coaching</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- PROOF -->
+<div class="proof-strip reveal">
+  <div class="proof-item">
+    <div class="proof-num">7</div>
+    <div class="proof-label">Weeks to build your complete senior dog plan</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">3</div>
+    <div class="proof-label">Plans built together — happiness, wellness & end-of-life</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">100s</div>
+    <div class="proof-label">Of senior dog families served across the U.S.</div>
+  </div>
+</div>
+
+<!-- WHO IS THIS FOR -->
+<section class="section section-alt">
+  <div class="tag">You're in the right place if…</div>
+  <h2 class="serif">Wherever you are in the<br><em>senior chapter,</em> we've got you.</h2>
+  <div class="who-grid">
+    <div class="who-card wc-a reveal">
+      <div class="who-label">Just entering the senior years</div>
+      <h3>"My dog is slowing down and I don't know where to start."</h3>
+      <p>You've noticed the gray muzzle, the slower mornings, the changes. You want to show up proactively — before crisis hits — with a real plan that honors these years.</p>
+      <a href="#masterclass" class="who-cta">Start with the free masterclass →</a>
+      <div class="who-bg">🌿</div>
+    </div>
+    <div class="who-card wc-b reveal">
+      <div class="who-label">Mid-crisis or facing a diagnosis</div>
+      <h3>"We just got scary news and I'm not ready."</h3>
+      <p>A diagnosis, a decline, a conversation you're dreading. You need more than a pamphlet. You need guidance, community, and a clear plan to hold onto.</p>
+      <a href="glowup-sales.html" class="who-cta">Learn about Glow Up →</a>
+      <div class="who-bg">🤝</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section col-2">
+  <div class="about-img reveal">
+    <div class="about-frame">
+      <!-- Swap in: <img src="dr-monica-portrait.jpg" style="width:100%;height:100%;object-fit:cover" alt="Dr. Monica"> -->
+      <div class="about-frame-ph">Dr. Monica Tarantino<br>portrait photo here</div>
+      <div class="about-note">
+        <div class="about-note-name">Dr. Monica Tarantino</div>
+        <div class="about-note-title">Veterinarian &<br>Senior Dog Wellness Coach</div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="tag">Meet Dr. Monica</div>
+    <h2 class="serif">Your vet best friend for<br><em>the years that matter most.</em></h2>
+    <p class="body-copy">I'm a veterinarian who fell in love with senior dogs — their wisdom, their slowdowns, the profound bond that deepens when you choose to show up with intention.</p>
+    <p class="body-copy">I created Senior Dog Revolution because pet parents in these years deserve more than rushed vet appointments and 2am Googling. You deserve a guide, a plan, and a community who truly gets it.</p>
+    <p class="body-copy">My work is rooted in science and led by heart — because the best senior dog care lives at the intersection of both.</p>
+    <div class="creds">
+      <span class="cred">Doctor of Veterinary Medicine</span>
+      <span class="cred">Senior Pet Wellness</span>
+      <span class="cred">Palliative Care</span>
+      <span class="cred">End-of-Life Planning</span>
+      <span class="cred">Small Group Coaching</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-alt">
+  <div class="tag">Client love</div>
+  <h2 class="serif" style="margin-bottom:0.5rem">What families say about<br><em>working with Dr. Monica</em></h2>
+  <div class="t-grid">
+    <div class="t-card reveal">
+      <blockquote>"I went from <strong>paralyzed by fear</strong> to feeling like I actually have a plan. Dr. Monica gave me permission to enjoy these years instead of dreading what's coming."</blockquote>
+      <div class="t-author">
+        <div class="t-av">LM</div>
+        <div><div class="t-name">Lisa M.</div><div class="t-dog">Mom to Biscuit, 13-year-old Beagle</div></div>
+      </div>
+    </div>
+    <div class="t-card reveal">
+      <blockquote>"My only regret is not doing this sooner. We built our happiness plan and <strong>Mochi had the best last year</strong> of his life because of it."</blockquote>
+      <div class="t-author">
+        <div class="t-av">JH</div>
+        <div><div class="t-name">Jamie H.</div><div class="t-dog">Mom to Mochi, 13-year-old Shih Tzu</div></div>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:1.5rem"><a href="glowup-sales.html#testimonials" style="font-size:0.8rem;color:var(--muted);text-decoration:none">Read more stories →</a></p>
+</section>
+
+<!-- GLOW UP STRIP -->
+<div id="glow-up" class="strip reveal">
+  <div>
+    <div style="font-size:0.64rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem">The Signature Program</div>
+    <div class="strip-h">Ready to build your senior dog's <em>complete plan?</em></div>
+    <div class="strip-sub">Glow Up is a 7-week small group coaching experience — happiness plan, wellness roadmap, and end-of-life framework, all built with Dr. Monica guiding you.</div>
+  </div>
+  <a href="glowup-sales.html" class="btn-rust">Learn About Glow Up →</a>
+</div>
+
+<!-- MASTERCLASS -->
+<section id="masterclass" class="section section-alt">
+  <div class="col-2">
+    <div class="reveal">
+      <div class="tag">Free Masterclass</div>
+      <h2 class="serif">How to <em>Slow Down</em><br>Your Dog's Slowing Down</h2>
+      <p class="body-copy">A free webinar where Dr. Monica walks you through the foundations every senior dog parent needs — and how to start showing up proactively today.</p>
+      <ul class="mc-bullets">
+        <li>What "slowing down" really looks like vs. what's a red flag</li>
+        <li>The 3 mistakes senior dog parents make most often</li>
+        <li>How to have the quality-of-life conversation with your vet</li>
+        <li>The first piece of your happiness plan you can build today</li>
+      </ul>
+      <a href="#signup" class="btn-forest">Reserve My Free Spot →</a>
+      <p style="font-size:0.74rem;color:var(--muted);margin-top:0.8rem;font-weight:300">Free · On-demand · 60 minutes</p>
+    </div>
+    <div id="signup" class="masterclass-box reveal">
+      <span class="mc-label">Get instant access</span>
+      <h3 class="mc-h">How to Slow Down Your Dog's Slowing Down</h3>
+      <p class="mc-sub">A free masterclass with Dr. Monica Tarantino</p>
+      <input type="text" class="mc-input" placeholder="Your first name">
+      <input type="email" class="mc-input" placeholder="Your email address">
+      <button class="mc-btn" onclick="alert('You\'re in! Check your email for the masterclass link.')">Send Me the Masterclass →</button>
+      <p class="mc-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <h2>Your senior dog is counting on you.<br><em>You don't have to figure this out alone.</em></h2>
+  <p>Whether you're just entering the senior years or navigating a crisis — there's a place for you here.</p>
+  <div class="final-btns">
+    <a href="#masterclass" class="btn-outline-white">Watch the Free Masterclass</a>
+    <a href="glowup-sales.html" class="btn-rust">Apply for Glow Up →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Senior Dog Revolution · Dr. Monica Tarantino</div>
+  <div class="f-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="f-copy">© 2025 Senior Dog Revolution</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'), i*70);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
